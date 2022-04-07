@@ -82,12 +82,18 @@ class ToDoListViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Create new item"
             textField = alertTextField
         }
         
         alert.addAction(action)
+        alert.addAction(cancelAction)
+        
         present(alert, animated: true, completion: nil)
     }
     
